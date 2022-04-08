@@ -306,11 +306,11 @@ footer ul {
   box-shadow: 0 0.2rem 0.6rem #e6e6e6;
   position: relative;
   overflow: hidden;
-  animation: slide-menu 500ms 300ms ease-out both;
+  animation: slide-menu 500ms 300ms ease-in-out both;
 }
-.menu__dish:hover i {
+.menu__dish:active i, .menu__dish:hover i {
   transform: rotate(0);
-  transition: transform 300ms;
+  transition: transform 500ms;
 }
 .menu__dish a {
   position: absolute;
@@ -375,9 +375,9 @@ footer ul {
   padding: 1.3rem;
   font-size: 1.7rem;
   color: #fff;
-  transform: rotate(180deg);
+  transform: rotate(-360deg);
 }
-.menu__dish:active .menu__dish-check {
+.menu__dish:active .menu__dish-check, .menu__dish:hover .menu__dish-check {
   transform: translateX(0);
 }
 .menu__btn {

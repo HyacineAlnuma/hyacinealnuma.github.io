@@ -332,11 +332,10 @@ footer {
         box-shadow: 0 0.2rem 0.6rem $bg-color-tertiary;
         position: relative;
         overflow: hidden;
-        animation: slide-menu 500ms 300ms ease-out both;
-        
-        &:hover i {
+        animation: slide-menu 500ms 300ms ease-in-out both;        
+        &:active i, &:hover i {
             transform: rotate(0);
-            transition: transform 300ms;
+            transition: transform 500ms;
         }
         a {
             position: absolute;
@@ -375,10 +374,10 @@ footer {
                 padding: 1.3rem;
                 font-size: 1.7rem;
                 color: $bg-color;
-                transform: rotate(180deg);
+                transform: rotate(-360deg);
             } 
         }
-        &:active {
+        &:active , &:hover {
             .menu__dish-check {
                 transform: translateX(0);
             }
