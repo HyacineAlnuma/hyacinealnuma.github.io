@@ -27,7 +27,18 @@
     opacity: 1;
   }
 }
+@keyframes slide-menu {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body > i:first-child {
+  color: #9356DC;
   position: absolute;
   left: 27%;
   top: 40vh;
@@ -84,6 +95,7 @@ header i {
 
 main {
   background-color: #f2f2f2;
+  position: relative;
 }
 
 footer {
@@ -150,6 +162,7 @@ footer ul {
 
 .fonctionnement {
   height: 22rem;
+  background-color: #fff;
 }
 .fonctionnement ul {
   display: flex;
@@ -236,31 +249,21 @@ footer ul {
   position: absolute;
   right: 1.5rem;
   bottom: 1.5rem;
-  z-index: 2;
-}
-.restaurants__description i:hover {
-  opacity: 0;
-}
-.restaurants__description i:hover::after {
-  opacity: 1;
-}
-.restaurants__description::after {
-  content: "letsgo";
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  color: red;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 300ms;
+  background-color: linear-gradient(to bottom right, #FF79DA, #9356DC);
 }
 .restaurants__description p {
   font-weight: 300;
 }
 
+.bloc-main {
+  width: 100%;
+  position: absolute;
+  top: 12rem;
+  z-index: 4;
+}
+
 .menu {
-  position: relative;
-  bottom: 3rem;
+  border: 1px white solid;
   z-index: 3;
   background-color: #f2f2f2;
   border-radius: 2.5rem 2.5rem 0 0;
@@ -272,7 +275,7 @@ footer ul {
   padding: 2rem 0 0 1.3rem;
   margin-bottom: 1rem;
 }
-.menu i {
+.menu > i {
   position: absolute;
   right: 2.2rem;
   top: 2.3rem;
@@ -294,7 +297,7 @@ footer ul {
   bottom: 0.6rem;
   background-color: #99E2D0;
 }
-.menu li {
+.menu__dish {
   background-color: #fff;
   width: 90%;
   height: 4rem;
@@ -302,19 +305,80 @@ footer ul {
   border-radius: 1rem;
   box-shadow: 0 0.2rem 0.6rem #e6e6e6;
   position: relative;
+  overflow: hidden;
+  animation: slide-menu 500ms 300ms ease-out both;
 }
-.menu li h3 {
+.menu__dish:hover i {
+  transform: rotate(0);
+  transition: transform 300ms;
+}
+.menu__dish a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.menu__dish--1 {
+  animation-delay: 150ms;
+}
+.menu__dish--2 {
+  animation-delay: 300ms;
+}
+.menu__dish--3 {
+  animation-delay: 450ms;
+}
+.menu__dish--4 {
+  animation-delay: 600ms;
+}
+.menu__dish--5 {
+  animation-delay: 750ms;
+}
+.menu__dish--6 {
+  animation-delay: 900ms;
+}
+.menu__dish--7 {
+  animation-delay: 1050ms;
+}
+.menu__dish--8 {
+  animation-delay: 1200ms;
+}
+.menu__dish--9 {
+  animation-delay: 1350ms;
+}
+.menu__dish--10 {
+  animation-delay: 1500ms;
+}
+.menu__dish h3 {
   padding: 0.8rem 0.7rem 0.2rem;
 }
-.menu li p:first-of-type {
+.menu__dish p:first-of-type {
   padding: 0 0.7rem;
   font-weight: 300;
   font-size: 0.85rem;
 }
-.menu li p:last-child {
+.menu__dish p:last-child {
   position: absolute;
   right: 1.5rem;
   bottom: 0.6rem;
+}
+.menu__dish-check {
+  width: 5rem;
+  height: 4rem;
+  background-color: #99E2D0;
+  position: absolute;
+  right: -1rem;
+  z-index: 2;
+  transform: translateX(5rem);
+  transition: transform 150ms ease-in;
+}
+.menu__dish-check i {
+  padding: 1.3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  transform: rotate(180deg);
+}
+.menu__dish:active .menu__dish-check {
+  transform: translateX(0);
 }
 .menu__btn {
   height: 3rem;

@@ -55,8 +55,20 @@ $bg-color-dark: darken($bg-color,80);
     }
 }
 
+@keyframes slide-menu {
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 body {
     > i:first-child {
+        color: #9356DC;
         position: absolute;
         left: 27%;
         top: 40vh;
@@ -114,7 +126,7 @@ header {
 
 main {
     background-color: $bg-color-secondary;
-    
+    position: relative;
 }
 
 footer {
@@ -176,6 +188,7 @@ footer {
 
 .fonctionnement {
     height: 22rem;
+    background-color: $bg-color;
     ul {
         display: flex;
         flex-direction: column;
@@ -261,23 +274,7 @@ footer {
             position: absolute;
             right: 1.5rem;
             bottom: 1.5rem;
-            z-index: 2;
-            &:hover {
-                opacity: 0;
-                &::after {
-                    opacity: 1;
-                }
-            }
-        }
-        &::after {
-            content: "letsgo";
-            position: absolute;
-            right: 1.5rem;
-            bottom: 1.5rem;
-            color: red;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 300ms;
+            background-color: $color-gradient;
         }
         p {
             font-weight: 300;
@@ -285,9 +282,15 @@ footer {
     }
 }
 
+.bloc-main {
+    width: 100%;
+    position: absolute;
+    top: 12rem;
+    z-index: 4;
+}
+
 .menu {
-    position: relative;
-    bottom: 3rem;
+    border: 1px white solid;
     z-index: 3;
     background-color: $bg-color-secondary;
     border-radius: 2.5rem 2.5rem 0 0;
@@ -298,7 +301,7 @@ footer {
         padding: 2rem 0 0 1.3rem;
         margin-bottom: 1rem;
     }
-    i {
+    > i {
         position: absolute;
         right: 2.2rem;
         top: 2.3rem;
@@ -320,7 +323,7 @@ footer {
         bottom: 0.6rem;
         background-color: $color-tertiary;
     }
-    li {
+    &__dish{
         background-color: $bg-color;
         width: 90%;
         height: 4rem;
@@ -328,6 +331,24 @@ footer {
         border-radius: 1rem;
         box-shadow: 0 0.2rem 0.6rem $bg-color-tertiary;
         position: relative;
+        overflow: hidden;
+        animation: slide-menu 500ms 300ms ease-out both;
+        
+        &:hover i {
+            transform: rotate(0);
+            transition: transform 300ms;
+        }
+        a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        @for $i from 1 to 11 {
+            &--#{$i} {
+                animation-delay: (150ms * $i);
+            }
+        }
         h3 {
             padding: 0.8rem 0.7rem 0.2rem;
         }
@@ -340,6 +361,27 @@ footer {
             position:absolute;
             right: 1.5rem;
             bottom: 0.6rem;
+        }
+        &-check {
+            width: 5rem;
+            height: 4rem;
+            background-color: $color-tertiary;
+            position: absolute;
+            right: -1rem;
+            z-index: 2;
+            transform: translateX(5rem);
+            transition: transform 150ms ease-in;
+            i {
+                padding: 1.3rem;
+                font-size: 1.7rem;
+                color: $bg-color;
+                transform: rotate(180deg);
+            } 
+        }
+        &:active {
+            .menu__dish-check {
+                transform: translateX(0);
+            }
         }
     }
     &__btn {
