@@ -45,6 +45,17 @@
     width: calc(100% - 5rem);
   }
 }
+@keyframes anim {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
+}
 body > i:first-child {
   color: #9356DC;
   position: absolute;
@@ -253,11 +264,28 @@ footer ul {
   border-radius: 0 0 1rem 1rem;
 }
 .restaurants__description i {
-  font-size: 1.5rem;
   position: absolute;
-  right: 1.5rem;
+  z-index: 5;
+  font-size: 1.5rem;
   bottom: 1.5rem;
-  background-color: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  right: 1.5rem;
+}
+.restaurants__description-like::before {
+  font-family: fontAwesome;
+  content: "\f004";
+  color: #9356DC;
+  position: absolute;
+  z-index: 6;
+  font-size: 1.5rem;
+  top: 1.54rem;
+  right: 1.49rem;
+  height: 0;
+  overflow: hidden;
+  transition: all 1s ease-in;
+}
+.restaurants__description-like:hover::before {
+  color: #FF79DA;
+  height: 100%;
 }
 .restaurants__description p {
   font-weight: 300;
