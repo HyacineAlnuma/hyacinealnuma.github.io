@@ -37,25 +37,6 @@
     transform: translateY(0);
   }
 }
-@keyframes width-menu {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: calc(100% - 5rem);
-  }
-}
-@keyframes anim {
-  0% {
-    background-position: 10% 0%;
-  }
-  50% {
-    background-position: 91% 100%;
-  }
-  100% {
-    background-position: 10% 0%;
-  }
-}
 body > i:first-child {
   color: #9356DC;
   position: absolute;
@@ -171,6 +152,7 @@ footer ul {
 }
 .heading__reservation-btn:hover {
   box-shadow: 0 0.3rem 0.9rem #737373;
+  background: #FF79DA;
 }
 .heading__image {
   width: 100%;
@@ -212,6 +194,12 @@ footer ul {
   position: absolute;
   left: -0.7rem;
 }
+.fonctionnement li:hover {
+  background-color: #f2eafb;
+}
+.fonctionnement li:hover i {
+  color: #9356DC;
+}
 .fonctionnement i {
   color: gray;
   font-size: 1.3rem;
@@ -241,7 +229,7 @@ footer ul {
   height: auto;
 }
 .restaurants li:hover {
-  box-shadow: 0 0.3rem 0.5rem #fff;
+  box-shadow: none;
 }
 .restaurants__new {
   position: absolute;
@@ -344,12 +332,6 @@ footer ul {
   overflow: hidden;
   animation: slide-menu 500ms 300ms ease-out both;
 }
-.menu__dish a {
-  text-overflow: ellipsis;
-}
-.menu__dish a:focus {
-  animation: width-menu 100ms both;
-}
 .menu__dish:focus i, .menu__dish:hover i {
   transform: rotate(0);
   transition: transform 500ms;
@@ -359,6 +341,10 @@ footer ul {
   width: 100%;
   height: 100%;
   z-index: 1;
+  transition: width 300ms ease;
+}
+.menu__dish a:focus {
+  width: calc(100% - 3rem);
 }
 .menu__dish--1 {
   animation-delay: 150ms;
@@ -392,13 +378,21 @@ footer ul {
 }
 .menu__dish h3 {
   padding: 0.8rem 0.7rem 0.2rem;
+  font-size: 1rem;
+  margin-right: 3rem;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 3rem;
 }
 .menu__dish p:first-of-type {
-  padding: 0 0.7rem;
+  padding: 0.2rem 0.7rem 0;
   font-weight: 300;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 3rem;
 }
 .menu__dish p:last-child {
   position: absolute;
@@ -439,6 +433,7 @@ footer ul {
 }
 .menu__btn:hover {
   box-shadow: 0 0.3rem 0.9rem #737373;
+  background: #FF79DA;
 }
 
 /*# sourceMappingURL=style.css.map */

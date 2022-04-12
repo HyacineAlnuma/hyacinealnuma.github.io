@@ -33,6 +33,13 @@ $bg-color-dark: darken($bg-color,80);
     box-shadow: 0 0.3rem 0.5rem darken($bg-color-tertiary, 25);
 }
 
+@mixin ellipsis-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 3rem;
+}
+
 @mixin shadow ($color: darken($bg-color-tertiary, 5)) {
     box-shadow: 0 0.3rem 0.5rem $color;
 }
@@ -63,27 +70,6 @@ $bg-color-dark: darken($bg-color,80);
     100% {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes width-menu {
-    0% {
-        width: 100%;
-    }
-    100% {
-        width: calc(100% - 5rem);
-    }
-}
-
-@keyframes anim {
-    0% {
-        background-position: 10% 0%;
-    }
-    50% {
-        background-position: 91% 100%;
-    }
-    100% {
-        background-position: 10% 0%;
     }
 }
 
@@ -196,6 +182,7 @@ footer {
             @include main-btn;
             &:hover {
                 box-shadow: 0 0.3rem 0.9rem darken($bg-color-tertiary, 45);
+                background: $color-secondary;
             }
         }
     }
@@ -239,6 +226,12 @@ footer {
             position: absolute;
             left: -0.7rem;
         }
+        &:hover {
+            background-color: lighten($color-primary, 35);
+            i {
+                color: $color-primary;
+            }
+        }
     }
     i {
         color: darken($bg-color-tertiary, 40);
@@ -268,7 +261,7 @@ footer {
             height: auto;
         }
         &:hover {
-            @include shadow($bg-color);
+            box-shadow: none;
         }
     }
     &__new {
@@ -371,12 +364,6 @@ footer {
         position: relative;
         overflow: hidden;
         animation: slide-menu 500ms 300ms ease-out both;
-        a {
-            text-overflow: ellipsis;
-        }
-        a:focus {
-            animation: width-menu 100ms both;
-        }
         &:focus i, &:hover i {
             transform: rotate(0);
             transition: transform 500ms;
@@ -386,6 +373,10 @@ footer {
             width: 100%;
             height: 100%;
             z-index: 1;
+            transition: width 300ms ease;
+        &:focus {
+            width: calc(100% - 3rem);
+        }
         }
         @for $i from 1 to 11 {
             &--#{$i} {
@@ -394,13 +385,15 @@ footer {
         }
         h3 {
             padding: 0.8rem 0.7rem 0.2rem;
-            text-overflow: ellipsis;
+            font-size: 1rem;
+            margin-right: 3rem;
+            @include ellipsis-overflow;
         }
         p:first-of-type {
-            padding: 0 0.7rem;
+            padding: 0.2rem 0.7rem 0;
             font-weight: 300;
-            font-size: 0.85rem;
-            text-overflow: ellipsis;
+            font-size: 0.8rem;
+            @include ellipsis-overflow;
         }
         p:last-child {
             position:absolute;
@@ -436,6 +429,7 @@ footer {
         width: 10rem;
         &:hover {
             box-shadow: 0 0.3rem 0.9rem darken($bg-color-tertiary, 45);
+            background: $color-secondary;
         }
     }
 }
