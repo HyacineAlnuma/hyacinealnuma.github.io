@@ -40,7 +40,8 @@
 body > i:first-child {
   color: #9356DC;
   position: absolute;
-  left: 42vw;
+  left: 50%;
+  margin-left: -4rem;
   top: 40vh;
   font-size: 10rem;
   animation: loading-spinner 1s ease-in-out 3;
@@ -58,7 +59,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 1.3rem;
-  margin-left: 5%;
+  margin-left: 2.5%;
   padding: 2.5rem 0 1rem 0;
 }
 
@@ -78,6 +79,7 @@ header {
   box-shadow: 0 0.3rem 0.5rem #d9d9d9;
   position: relative;
   z-index: 1;
+  background-color: #fff;
 }
 header img {
   max-width: 45%;
@@ -95,14 +97,14 @@ header i {
 }
 
 main {
-  background-color: #f2f2f2;
+  background-color: #fff;
   position: relative;
 }
 
 footer {
   height: 12rem;
   background-color: #333333;
-  padding: 1.5rem;
+  padding: 1.5rem 5%;
 }
 footer a {
   color: #fff;
@@ -160,6 +162,14 @@ footer ul {
   height: auto;
   z-index: 2;
   position: relative;
+}
+@media all and (min-width: 1025px) {
+  .heading__image {
+    width: 40%;
+    height: auto;
+    margin-left: 30%;
+    border-radius: 4rem;
+  }
 }
 
 .fonctionnement {
@@ -263,7 +273,6 @@ footer ul {
   background-color: #fff;
   position: absolute;
   bottom: 0;
-  border-radius: 0 0 1rem 1rem;
 }
 .restaurants__description i {
   position: absolute;
@@ -279,11 +288,11 @@ footer ul {
   position: absolute;
   z-index: 6;
   font-size: 1.5rem;
-  top: 1.54rem;
-  right: 1.49rem;
   height: 0;
   overflow: hidden;
   transition: all 1s ease-in;
+  top: 1.57rem;
+  right: 1.5rem;
 }
 .restaurants__description-like:hover::before {
   color: #FF79DA;
@@ -299,25 +308,54 @@ footer ul {
   top: 12rem;
   z-index: 4;
 }
+@media all and (min-width: 1025px) {
+  .bloc-main {
+    position: unset;
+  }
+}
 
 .menu {
-  border: 1px white solid;
+  height: auto;
+  padding-bottom: 1rem;
   z-index: 3;
   background-color: #f2f2f2;
   border-radius: 2.5rem 2.5rem 0 0;
+  position: relative;
 }
 .menu h1 {
   font-family: "Shrikhand", serif;
   font-size: 1.6rem;
   text-align: left;
-  padding: 2rem 0 0 1.3rem;
+  padding: 2rem 2.5% 0;
   margin-bottom: 1rem;
 }
-.menu > i {
+@media all and (min-width: 1025px) {
+  .menu ul {
+    display: flex;
+  }
+}
+.menu__like i {
   position: absolute;
   right: 2.2rem;
   top: 2.3rem;
   font-size: 1.5rem;
+}
+.menu__like::before {
+  font-family: fontAwesome;
+  content: "\f004";
+  color: #9356DC;
+  position: absolute;
+  z-index: 6;
+  font-size: 1.5rem;
+  height: 0;
+  overflow: hidden;
+  transition: all 1s ease-in;
+  right: 2.2rem;
+  top: 2.3rem;
+}
+.menu__like:hover::before {
+  color: #FF79DA;
+  height: 100%;
 }
 .menu h2 {
   font-weight: 300;
@@ -331,13 +369,13 @@ footer ul {
   height: 4px;
   width: 3rem;
   position: absolute;
-  left: 5%;
+  left: 2.5%;
   bottom: 0.6rem;
   background-color: #99E2D0;
 }
 .menu__dish {
   background-color: #fff;
-  width: 90%;
+  width: 95%;
   height: 4rem;
   margin: 0 auto 1rem;
   border-radius: 1rem;
@@ -345,6 +383,11 @@ footer ul {
   position: relative;
   overflow: hidden;
   animation: slide-menu 500ms 300ms ease-out both;
+}
+@media all and (min-width: 1025px) {
+  .menu__dish {
+    margin: 1rem;
+  }
 }
 .menu__dish:focus i, .menu__dish:hover i {
   transform: rotate(0);
@@ -357,7 +400,7 @@ footer ul {
   z-index: 1;
   transition: width 150ms ease-in;
 }
-.menu__dish a:focus {
+.menu__dish a:focus, .menu__dish a:hover {
   width: calc(100% - 3rem);
 }
 .menu__dish--1 {
@@ -431,6 +474,9 @@ footer ul {
 .menu__dish:focus .menu__dish-check, .menu__dish:hover .menu__dish-check {
   transform: translateX(0);
 }
+.menu__dish:hover {
+  box-shadow: none;
+}
 .menu__btn {
   height: 3rem;
   width: 13rem;
@@ -440,7 +486,7 @@ footer ul {
   color: #fff;
   padding: 0.9rem;
   box-shadow: 0 0.3rem 0.5rem #a6a6a6;
-  margin: 3rem auto 4rem;
+  margin: 3rem auto 2rem;
   text-align: center;
   width: 10rem;
 }

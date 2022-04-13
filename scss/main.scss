@@ -54,6 +54,18 @@ $breakpoints: (
     box-shadow: 0 0.3rem 0.5rem $color;
 }
 
+@mixin anim-like {
+    font-family: fontAwesome;
+    content: '\f004';
+    color: #9356DC;
+    position: absolute;
+    z-index: 6;
+    font-size: 1.5rem;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease-in;
+}
+
 @keyframes loading-spinner {
     0% {
         transform: rotate(0);
@@ -87,7 +99,8 @@ body {
     > i:first-child {
         color: #9356DC;
         position: absolute;
-        left: 42vw;
+        left: 50%;
+        margin-left: -4rem;
         top: 40vh;
         font-size: 10rem;
         animation: loading-spinner 1s ease-in-out 3;
@@ -106,7 +119,7 @@ h1 {
 h2 {
     font-weight: bold;
     font-size: 1.3rem;
-    margin-left: 5%;
+    margin-left: 2.5%;
     padding: 2.5rem 0 1rem 0;
 }
 
@@ -126,6 +139,7 @@ header {
     @include shadow;
     position: relative;
     z-index: 1;
+    background-color: $bg-color;
     img {
         max-width: 45%;
         height: auto;
@@ -143,14 +157,14 @@ header {
 }
 
 main {
-    background-color: $bg-color-secondary;
+    background-color: $bg-color;
     position: relative;
 }
 
 footer {
     height: 12rem;
     background-color: $bg-color-dark;
-    padding: 1.5rem;
+    padding: 1.5rem 5%;
     a {
         color: $bg-color;
         font-size: 0.8rem;
@@ -202,6 +216,12 @@ footer {
         height: auto;
         z-index: 2;
         position: relative;
+        @include tablette-bp {
+            width: 40%;
+            height: auto;
+            margin-left: 30%;
+            border-radius: 4rem;
+        }
     }
 }
 
@@ -302,7 +322,6 @@ footer {
         background-color: $bg-color;
         position: absolute;
         bottom: 0;
-        border-radius: 0 0 1rem 1rem;
         i {
         position: absolute;
         z-index: 5;
@@ -311,17 +330,9 @@ footer {
         right: 1.5rem;
         }
         &-like::before {
-            font-family: fontAwesome;
-            content: '\f004';
-            color: #9356DC;
-            position: absolute;
-            z-index: 6;
-            font-size: 1.5rem;
-            top: 1.54rem;
-            right: 1.49rem;
-            height: 0;
-            overflow: hidden;
-            transition: all 1s ease-in;
+            @include anim-like;
+            top: 1.57rem;
+            right: 1.5rem;
         }
         &-like:hover::before {
             color: #FF79DA;
@@ -338,25 +349,46 @@ footer {
     position: absolute;
     top: 12rem;
     z-index: 4;
+    @include tablette-bp {
+        position: unset;
+    }
 }
 
 .menu {
-    border: 1px white solid;
+    height: auto;
+    padding-bottom: 1rem;
     z-index: 3;
     background-color: $bg-color-secondary;
     border-radius: 2.5rem 2.5rem 0 0;
+    position: relative;
     h1 {
         font-family: "Shrikhand", serif;
         font-size: 1.6rem;
         text-align: left;
-        padding: 2rem 0 0 1.3rem;
+        padding: 2rem 2.5% 0;
         margin-bottom: 1rem;
     }
-    > i {
-        position: absolute;
-        right: 2.2rem;
-        top: 2.3rem;
-        font-size: 1.5rem;
+    ul {
+        @include tablette-bp {
+            display: flex;
+        }
+    }
+    &__like { 
+        i {
+            position: absolute;
+            right: 2.2rem;
+            top: 2.3rem;
+            font-size: 1.5rem;
+        }
+        &::before {
+            @include anim-like;
+            right: 2.2rem;
+            top: 2.3rem;
+        }
+        &:hover::before {
+            color: #FF79DA;
+            height: 100%;
+        }
     }
     h2 {
         font-weight: 300;
@@ -370,13 +402,16 @@ footer {
         height: 4px;
         width: 3rem;
         position: absolute;
-        left: 5%;
+        left: 2.5%;
         bottom: 0.6rem;
         background-color: $color-tertiary;
     }
     &__dish {
+        @include tablette-bp {
+            margin: 1rem;
+        }
         background-color: $bg-color;
-        width: 90%;
+        width: 95%;
         height: 4rem;
         margin: 0 auto 1rem;
         border-radius: 1rem;
@@ -394,9 +429,9 @@ footer {
             height: 100%;
             z-index: 1;
             transition: width 150ms ease-in;
-        &:focus {
-            width: calc(100% - 3rem);
-        }
+            &:focus, &:hover {
+                width: calc(100% - 3rem);
+            }
         }
         @for $i from 1 to 11 {
             &--#{$i} {
@@ -440,10 +475,13 @@ footer {
                 transform: translateX(0);
             }
         }
+        &:hover {
+            box-shadow: none;
+        }
     }
     &__btn {
         @include main-btn;
-        margin: 3rem auto 4rem;
+        margin: 3rem auto 2rem;
         text-align: center;
         width: 10rem;
         &:hover {
@@ -451,8 +489,4 @@ footer {
             background: $color-secondary;
         }
     }
-}
-
-@media all and (min-width: 769px) {
-
 }
