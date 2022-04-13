@@ -40,7 +40,7 @@
 body > i:first-child {
   color: #9356DC;
   position: absolute;
-  left: 27%;
+  left: 42vw;
   top: 40vh;
   font-size: 10rem;
   animation: loading-spinner 1s ease-in-out 3;
@@ -63,7 +63,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 h4 {
@@ -80,8 +80,9 @@ header {
   z-index: 1;
 }
 header img {
-  width: 45%;
+  max-width: 45%;
   height: auto;
+  max-height: 3.5rem;
   display: block;
   margin: auto;
   padding-top: 1.3rem;
@@ -207,13 +208,21 @@ footer ul {
 
 .restaurants {
   background-color: #f2f2f2;
-  height: 76rem;
+  height: auto;
+  padding-bottom: 2rem;
 }
 .restaurants ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+@media all and (min-width: 1025px) {
+  .restaurants ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 .restaurants li {
   width: 90%;
@@ -223,6 +232,11 @@ footer ul {
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 0.3rem 0.5rem #d9d9d9;
+}
+@media all and (min-width: 1025px) {
+  .restaurants li {
+    width: 45%;
+  }
 }
 .restaurants li img {
   width: 100%;
@@ -317,7 +331,7 @@ footer ul {
   height: 4px;
   width: 3rem;
   position: absolute;
-  left: 1.1rem;
+  left: 5%;
   bottom: 0.6rem;
   background-color: #99E2D0;
 }
@@ -341,7 +355,7 @@ footer ul {
   width: 100%;
   height: 100%;
   z-index: 1;
-  transition: width 300ms ease;
+  transition: width 150ms ease-in;
 }
 .menu__dish a:focus {
   width: calc(100% - 3rem);
@@ -378,7 +392,6 @@ footer ul {
 }
 .menu__dish h3 {
   padding: 0.8rem 0.7rem 0.2rem;
-  font-size: 1rem;
   margin-right: 3rem;
   overflow: hidden;
   text-overflow: ellipsis;
