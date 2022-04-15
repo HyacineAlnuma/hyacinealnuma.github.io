@@ -480,8 +480,9 @@ footer {
         }
     }
     &__btn {
-        @include main-btn;
+        display: block;
         margin: 3rem auto 2rem;
+        @include main-btn;
         text-align: center;
         width: 10rem;
         &:hover {

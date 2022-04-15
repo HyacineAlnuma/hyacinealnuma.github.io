@@ -478,6 +478,8 @@ footer ul {
   box-shadow: none;
 }
 .menu__btn {
+  display: block;
+  margin: 3rem auto 2rem;
   height: 3rem;
   width: 13rem;
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
@@ -486,7 +488,6 @@ footer ul {
   color: #fff;
   padding: 0.9rem;
   box-shadow: 0 0.3rem 0.5rem #a6a6a6;
-  margin: 3rem auto 2rem;
   text-align: center;
   width: 10rem;
 }
