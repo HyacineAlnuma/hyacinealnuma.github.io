@@ -185,6 +185,15 @@ footer {
 }
 
 .heading {
+    input {
+        background-color: $bg-color-tertiary;
+        height: 30px;
+        width: 170px;
+        font-size: 1.1rem;
+        border: none;
+        margin-left: 10px;
+        padding-left: 20px;
+    }
     &__location {
         background-color: $bg-color-tertiary;
         color: darken($bg-color-tertiary, 70);

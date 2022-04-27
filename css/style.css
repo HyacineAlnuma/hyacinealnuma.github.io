@@ -124,6 +124,15 @@ footer ul {
   line-height: 25.5px;
 }
 
+.heading input {
+  background-color: #e6e6e6;
+  height: 30px;
+  width: 170px;
+  font-size: 1.1rem;
+  border: none;
+  margin-left: 10px;
+  padding-left: 20px;
+}
 .heading__location {
   background-color: #e6e6e6;
   color: #333333;
