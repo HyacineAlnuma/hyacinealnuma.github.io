@@ -334,7 +334,7 @@ footer {
         }
         &-like::before {
             @include anim-like;
-            top: 25.5px;
+            top: 27px;
             right: 25.5px;
         }
         &-like:hover::before {
@@ -386,7 +386,7 @@ footer {
         &::before {
             @include anim-like;
             right: 37.4px;
-            top: 38px;
+            top: 39px;
         }
         &:hover::before {
             color: #FF79DA;

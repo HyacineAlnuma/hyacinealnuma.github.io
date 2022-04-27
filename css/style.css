@@ -294,7 +294,7 @@ footer ul {
   height: 0;
   overflow: hidden;
   transition: all 1s ease-in;
-  top: 25.5px;
+  top: 27px;
   right: 25.5px;
 }
 .restaurants__description-like:hover::before {
@@ -354,7 +354,7 @@ footer ul {
   overflow: hidden;
   transition: all 1s ease-in;
   right: 37.4px;
-  top: 38px;
+  top: 39px;
 }
 .menu__like:hover::before {
   color: #FF79DA;
